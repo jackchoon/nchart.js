@@ -1,0 +1,14 @@
+{
+  "name": "nchart.js",
+  "version": "1.0.0",
+  "description": "Simple HTML5 Cavas Derecitve for Angularjs using Chart.js",
+  "homepage": "https://github.com/darral/nchart.js",
+  "author": "darral",
+  "main": [
+    "nchart.js"
+  ],
+  "dependencies": {
+    "chartjs": "*",
+    "angularjs": "~1.3.12"
+  }
+}

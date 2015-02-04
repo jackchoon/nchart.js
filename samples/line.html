@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Line Chart</title>
+		<script src="../bower_components/chartjs/Chart.js"></script>
+		<script src="../bower_components/angularjs/angular.js"></script>
+		<script src="../dist/nchart.js"></script>
+	</head>
+	<body ng-app="app">
+		<div style="width: 50%" ng-controller="DemoController" ng-init="init()">
+			<linechart id="canvas" height="450" data="data" width="600"></linechart>
+		</div>
+	<script>
+		var app = angular.module("app", ['nchart']);
+		app.controller('DemoController', ["$scope",
+			function($scope){
+
+				$scope.init = function(){
+
+					//Bar Chart Data
+					$scope.data = {
+						labels : ["January","February","March","April","May","June","July"],
+						datasets : [
+							{
+								label: "My First dataset",
+								fillColor : "rgba(220,220,220,0.2)",
+								strokeColor : "rgba(220,220,220,1)",
+								pointColor : "rgba(220,220,220,1)",
+								pointStrokeColor : "#fff",
+								pointHighlightFill : "#fff",
+								pointHighlightStroke : "rgba(220,220,220,1)",
+								data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+							},
+							{
+								label: "My Second dataset",
+								fillColor : "rgba(151,187,205,0.2)",
+								strokeColor : "rgba(151,187,205,1)",
+								pointColor : "rgba(151,187,205,1)",
+								pointStrokeColor : "#fff",
+								pointHighlightFill : "#fff",
+								pointHighlightStroke : "rgba(151,187,205,1)",
+								data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+							}
+						]
+
+					};
+				};
+
+				var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+			}
+		]);
+
+
+
+	</script>
+	</body>
+</html>
