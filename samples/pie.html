@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Pie Chart</title>
+		<script src="../bower_components/chartjs/Chart.js"></script>
+		<script src="../bower_components/angularjs/angular.js"></script>
+		<script src="../dist/nchart.js"></script>
+	</head>
+	<body ng-app="app">
+		<div style="width: 50%" ng-controller="DemoController" ng-init="init()">
+			<piechart id="canvas" height="450" data="data" width="600"></piechart>
+		</div>
+	<script>
+		var app = angular.module("app", ['nchart']);
+		app.controller('DemoController', ["$scope",
+			function($scope){
+
+				$scope.init = function(){
+
+					//Bar Chart Data
+					$scope.data = [
+						{
+							value: 300,
+							color:"#F7464A",
+							highlight: "#FF5A5E",
+							label: "Red"
+						},
+						{
+							value: 50,
+							color: "#46BFBD",
+							highlight: "#5AD3D1",
+							label: "Green"
+						},
+						{
+							value: 100,
+							color: "#FDB45C",
+							highlight: "#FFC870",
+							label: "Yellow"
+						}
+					]
+				};
+			}
+		]);
+
+
+
+	</script>
+	</body>
+</html>

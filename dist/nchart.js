@@ -11,7 +11,7 @@ nchart.directive('barchart', function() {
         template : '<canvas></canvas>',
 
         link : function(scope, element, attrs) {
-            var ctx = document.getElementById("canvas").getContext("2d");
+            var ctx = element[0].getContext("2d");
             scope.myBar = new Chart(ctx).Bar(scope.barChartData, {
                 responsive : true
             });
@@ -25,13 +25,53 @@ nchart.directive('linechart', function() {
         replace : true,
         transclude : true,
         scope : {
+            data : '=data',
+            option : '=option'
+        },
+        template : '<canvas></canvas>',
+
+        link : function(scope, element, attrs) {
+            var ctx = element[0].getContext("2d");
+            scope.myLine = new Chart(ctx).Line(scope.data, {
+                responsive : true
+            });
+        }
+    }
+});
+
+
+nchart.directive('piechart', function() {
+    return {
+        restrict : 'EA',
+        replace : true,
+        transclude : true,
+        scope : {
             data : '=data'
         },
         template : '<canvas></canvas>',
 
         link : function(scope, element, attrs) {
-            var ctx = document.getElementById("canvas").getContext("2d");
-            scope.myLine = new Chart(ctx).Line(scope.data, {
+            var ctx = element[0].getContext("2d");
+            scope.myLine = new Chart(ctx).Pie(scope.data, {
+                responsive : true
+            });
+        }
+    }
+});
+
+nchart.directive('doughnutChart', function() {
+    return {
+        restrict : 'EA',
+        replace : true,
+        transclude : true,
+        scope : {
+            data : '=data'
+        },
+        template : '<canvas></canvas>',
+
+        link : function(scope, element, attrs) {
+            var ctx = element[0].getContext("2d");
+            scope.myLine = new Chart(ctx).Doughnut(scope.data, {
                 responsive : true
             });
         }
